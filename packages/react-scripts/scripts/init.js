@@ -224,22 +224,11 @@ module.exports = function(
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log('Inside that directory, you can run several commands:');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} dev`));
-  console.log(
-    '    Starts the development server in isolation with basic mocking for'
-  );
-  console.log(
-    '    the Deskpro API client. See the README for more info on mock data.'
-  );
-  console.log();
   console.log(chalk.cyan(`  ${displayedCommand} start`));
+  console.log('    Starts the development server.');
   console.log(
-    '    Starts the development server for use in a real Deskpro site.'
+    '    Use this when you want to develop your app in your browser.'
   );
-  console.log(
-    '    Use this when you want to see your app in a real Deskpro instance'
-  );
-  console.log('    running in dev mode. See the README for more details.');
   console.log();
   console.log(
     chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}build`)
