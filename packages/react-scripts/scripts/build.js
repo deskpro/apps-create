@@ -94,13 +94,6 @@ measureFileSizesBeforeBuild(paths.appBuild)
       const publicUrl = paths.publicUrl;
       const publicPath = config.output.publicPath;
       const buildFolder = path.relative(process.cwd(), paths.appBuild);
-      printHostingInstructions(
-        appPackage,
-        publicUrl,
-        publicPath,
-        buildFolder,
-        useYarn
-      );
     },
     err => {
       console.log(chalk.red('Failed to compile.\n'));
@@ -108,7 +101,18 @@ measureFileSizesBeforeBuild(paths.appBuild)
       process.exit(1);
     }
   )
-  .then(deskproBuild);
+  .then(deskproBuild)
+  .then(() => {
+    console.log('');
+    console.log(chalk.green('=== Ready to deploy? ==='));
+    console.log(
+      'Refer to the online apps guide to learn about deploying your app:'
+    );
+    console.log(
+      'https://deskpro.gitbook.io/deskpro-apps/deploying-your-app/deployment'
+    );
+    console.log('');
+  });
 
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {

@@ -18,7 +18,11 @@ function bundle(source, destination) {
     'ADMIN_README.md'
   );
 
-  return fsExtra.copy(sourcePath, destinationPath);
+  if (fs.existsSync(sourcePath)) {
+    return fsExtra.copy(sourcePath, destinationPath);
+  } else {
+    return fs.writeFileSync(destinationPath, 'This app has no README.');
+  }
 }
 
 module.exports = {

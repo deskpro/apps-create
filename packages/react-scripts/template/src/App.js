@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Greeting from './Greeting';
+import './styles.css';
 
 class App extends React.Component {
   static propTypes = {
@@ -17,7 +18,8 @@ class App extends React.Component {
   }
 
   render() {
-    return <Greeting {...this.state} />;
+    const { me } = this.state;
+    return me ? <p>Loading...</p> : <p>Hello, {me.name}!</p>;
   }
 }
 

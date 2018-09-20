@@ -261,7 +261,12 @@ module.exports = {
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
-      template: paths.appHtml,
+      templateContent: require('fs')
+        .readFileSync(paths.appHtml)
+        .replace(
+          '<head>',
+          '<head><script>window.self === window.top && window.location.replace("/dev.html");</script>'
+        ),
       templateParameters: env.raw,
       excludeChunks: ['dev', 'install'],
     }),

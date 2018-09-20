@@ -18,9 +18,8 @@ function createExecutor(projectRoot, artifactName) {
     // listen for all archive data to be written
     // 'close' event is fired only when a file descriptor is involved
     output.on('close', function() {
-      console.log(
-        destination + ' ready with ' + archive.pointer() + ' total bytes'
-      );
+      console.log(chalk.green('=== App packaged successfully ==='));
+      console.log(destination + ' (' + archive.pointer() + ' bytes)');
       resolve();
     });
 
@@ -55,7 +54,6 @@ function createExecutor(projectRoot, artifactName) {
     archive.pipe(output);
 
     archive.glob('**', {
-      debug: true,
       cwd: source,
       ignore: [artifactName, '**/*.js.map', '**/*.css.map'],
     });
