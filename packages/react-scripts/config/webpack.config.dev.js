@@ -262,7 +262,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       templateContent: require('fs')
-        .readFileSync(paths.appHtml)
+        .readFileSync(paths.appHtml, 'utf8')
         .replace(
           '<head>',
           '<head><script>window.self === window.top && window.location.replace("/dev.html");</script>'

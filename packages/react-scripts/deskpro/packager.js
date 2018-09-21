@@ -1,6 +1,7 @@
 const archiver = require('archiver');
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 
 function createExecutor(projectRoot, artifactName) {
   const realProjectRoot = fs.realpathSync(projectRoot);
