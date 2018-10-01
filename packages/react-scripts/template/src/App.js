@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Greeting from './Greeting';
+import { Phrase } from '@deskpro/apps-components';
 import './styles.css';
+
+/*
+  This is your main App component. By default, this is the upper-most component
+  for your app. You can start developing your app here like you would with
+  any React app.
+
+  The example below demonstrates using dpapp to fetch the details for the
+  currently logged-in agent to show a "Hello" message.
+*/
 
 class App extends React.Component {
   static propTypes = {
@@ -19,7 +28,15 @@ class App extends React.Component {
 
   render() {
     const { me } = this.state;
-    return me ? <p>Loading...</p> : <p>Hello, {me.name}!</p>;
+    return (
+      <p>
+        {me ? (
+          <Phrase id="hello_name" name={me.name} />
+        ) : (
+          <Phrase id="loading" />
+        )}
+      </p>
+    );
   }
 }
 

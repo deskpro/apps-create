@@ -4,8 +4,8 @@ addScenario('default', {
   'context.me_get': {
     body: {
       id: 1,
-      email: 'joe.kool@deskpro.com',
-      name: 'Joe Kool',
+      email: 'john.doe@deskprodev.com',
+      name: 'John Doe',
     },
     status: 'success',
   },

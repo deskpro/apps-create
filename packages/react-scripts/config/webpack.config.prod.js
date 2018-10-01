@@ -171,6 +171,17 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          {
+            test: /\.(yml|yaml)$/,
+            use: [
+              {
+                loader: 'json-loader',
+              },
+              {
+                loader: require.resolve('yaml-loader'),
+              },
+            ],
+          },
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
@@ -181,6 +192,7 @@ module.exports = {
               babelrc: false,
               presets: [require.resolve('babel-preset-react-app')],
               // @remove-on-eject-end
+              plugins: [require('babel-plugin-import-glob')],
               compact: true,
             },
           },
