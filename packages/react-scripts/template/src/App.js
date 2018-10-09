@@ -15,6 +15,12 @@ import './styles.css';
 class App extends React.Component {
   static propTypes = {
     dpapp: PropTypes.object.isRequired,
+    uiProps: PropTypes.shape({
+      state: PropTypes.oneOf(['ready', 'loading', 'error', 'inactive']),
+      display: PropTypes.oneOf(['collapsed', 'expanded', 'fullscreen']),
+      badgeCount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      badgeVisibility: PropTypes.oneOf(['hidden', 'visible']),
+    }).isRequired,
   };
 
   state = {

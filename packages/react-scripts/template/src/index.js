@@ -19,7 +19,15 @@ import * as phrasePacks from './locales/**/*.{json,yaml,yml}';
 createApp(dpapp => props => {
   ReactDOM.render(
     <DefaultDeskproApp dpapp={dpapp} phrasePacks={phrasePacks} {...props}>
-      <App dpapp={dpapp} />
+      <App
+        dpapp={dpapp}
+        uiProps={{
+          state: props.state,
+          display: props.display,
+          badgeCount: props.badgeCount,
+          badgeVisibility: props.badgeVisibility,
+        }}
+      />
     </DefaultDeskproApp>,
     document.getElementById('root')
   );
