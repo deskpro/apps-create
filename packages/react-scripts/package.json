@@ -1,6 +1,6 @@
 {
   "name": "@deskpro/apps-react-scripts",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "description": "Configuration and scripts for Create React App.",
   "publishConfig": {
     "access": "public"
